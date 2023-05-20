@@ -16,7 +16,6 @@ eleven_api_key = os.getenv("ELEVEN_API_KEY")
 llm = OpenAI(temperature=0.9)
 
 def generate_recipe(food, calories):
-    """Generate a story using the langchain library and OpenAI's GPT-3 model."""
     prompt = PromptTemplate(
         input_variables=["food", "calories"],
         template=""" 
@@ -32,7 +31,6 @@ def generate_recipe(food, calories):
 
 
 def generate_audio(text, voice):
-    """Convert the generated story to audio using the Eleven Labs API."""
     audio = generate(text=text, voice=voice, api_key=eleven_api_key)
     return audio
 
